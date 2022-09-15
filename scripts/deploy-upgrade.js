@@ -5,22 +5,22 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 
 // const { ethers } = require("@nomiclabs/hardhat-ethers");
-const {ethers} = require("hardhat");
+const { ethers, upgrades } = require("hardhat");
 // global scope, and execute the script.
 
-async function main () {
+async function main() {
   // We get the contract to deploy
-  const ToSBT = await ethers.getContractFactory('ToSBT');
-  console.log('Deploying ToSBT...');
-  const toSBT = await ToSBT.deploy();
-  await toSBT.deployed();
-  console.log('ToSBT deployed to:', toSBT.address);
+  const Box = await ethers.getContractFactory("Box");
+  console.log("Deploying Box...");
+  // const box = await Box.deploy();
+  const box = await upgrades.deployProxy(Box, [42], { initializer: "store" });
+  await box.deployed();
+  console.log("ToSBT deployed to:", box.address);
 }
-
 
 main()
   .then(() => process.exit(0))
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
     process.exit(1);
   });

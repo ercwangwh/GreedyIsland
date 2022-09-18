@@ -4,6 +4,10 @@ require("@nomiclabs/hardhat-solhint");
 require("@openzeppelin/hardhat-upgrades");
 require("hardhat-deploy");
 
+require("dotenv").config();
+
+const MAINNET_RPC_URL = process.env.ALCHEMY_MAINNET_RPC_URL;
+
 module.exports = {
   solidity: "0.8.17",
   defaultNetwork: "hardhat",
@@ -17,6 +21,11 @@ module.exports = {
     },
     localhost: {
       chainId: 31337,
+    },
+    mainnet: {
+      url: MAINNET_RPC_URL,
+      saveDeployments: true,
+      chainId: 1,
     },
   },
   namedAccounts: {

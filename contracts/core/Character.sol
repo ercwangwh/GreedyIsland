@@ -2,14 +2,16 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract Character is ERC721URIStorage {
+contract Character is IERC721, ERC721URIStorage {
     using Counters for Counters.Counter;
 
     //Variable
     Counters.Counter private _tokenIdCounter;
+    mapping(address => bool) private mintedAddress;
     mapping(uint => string) public name;
     mapping(uint => uint) public level;
     mapping(uint => uint) public xp;
@@ -22,9 +24,13 @@ contract Character is ERC721URIStorage {
     constructor() ERC721("Character", "HUNTER") {}
 
     function summon() external {
+        require(mintedAddress[msg.sender] == false, "Already summoned");
+
         uint _next_summoner = _tokenIdCounter.current();
         name[_next_summoner] = Strings.toHexString(msg.sender);
         level[_next_summoner] = 1;
+        mintedAddress[msg.sender] = true;
+
         _safeMint(msg.sender, _next_summoner);
         emit summoned(msg.sender, _next_summoner);
         _tokenIdCounter.increment();

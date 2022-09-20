@@ -19,15 +19,15 @@ contract CodexAchievements {
         )
     {
         if (_id == 1) {
-            return find_the_door();
+            return walkthourgh_chapter0();
         } else if (_id == 2) {
-            return find_the_door();
+            return wander();
         } else if (_id == 3) {
             return wander();
         }
     }
 
-    function find_the_door()
+    function walkthourgh_chapter0()
         public
         pure
         returns (
@@ -42,37 +42,13 @@ contract CodexAchievements {
         )
     {
         id = 1;
-        name = "Find the door";
+        name = "Chapter 0 Finished";
         attribute_id = 4;
         synergy = 6; // craft
         retry = false;
         armor_check_penalty = false;
-        check = "Check to open the door, need key";
-        action = "Find the door";
-    }
-
-    function find_key()
-        public
-        pure
-        returns (
-            uint id,
-            string memory name,
-            uint attribute_id,
-            uint synergy,
-            bool retry,
-            bool armor_check_penalty,
-            string memory check,
-            string memory action
-        )
-    {
-        id = 2;
-        name = "Find the key";
-        attribute_id = 4;
-        synergy = 6; // craft
-        retry = false;
-        armor_check_penalty = false;
-        check = "Check attributes to get the key, need clothes";
-        action = "Find the key";
+        check = "Complete find the door event";
+        action = "Complete";
     }
 
     function wander()
@@ -89,13 +65,13 @@ contract CodexAchievements {
             string memory action
         )
     {
-        id = 3;
+        id = 2;
         name = "Wander";
         attribute_id = 4;
         synergy = 6; // craft
         retry = false;
         armor_check_penalty = false;
-        check = "Nothing happen";
-        action = "Wander around, nothing happen";
+        check = "wander 10 times";
+        action = "Wander";
     }
 }

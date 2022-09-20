@@ -9,8 +9,8 @@ interface Character {
     function ownerOf(uint) external view returns (address);
 }
 
-interface CodexEvents {
-    function event_by_id(uint)
+interface CodexAchievement {
+    function achievement_by_id(uint)
         external
         view
         returns (
@@ -25,35 +25,34 @@ interface CodexEvents {
         );
 }
 
-interface CodexBaseRandom {
-    function d4(uint _summoner) external view returns (uint);
-}
-
-contract Events {
+contract Achievements {
     //----------------need fix the address--------------------
     Character constant _hunter =
         Character(0xce761D788DF608BD21bdd59d6f4B54b2e27F25Bb);
-    CodexEvents constant _codex_events =
-        CodexEvents(0x67ae39a2Ee91D7258a86CD901B17527e19E493B3);
+    CodexAchievement constant _codex_achievements =
+        CodexAchievement(0x67ae39a2Ee91D7258a86CD901B17527e19E493B3);
+
     //---------------------------------------------------------
 
-    mapping(uint => uint8[36]) public events;
+    mapping(uint => uint8[36]) public achievements;
 
-    function set_events(uint _summoner, uint8[36] memory _events) external {
+    function set_achievements(uint _summoner, uint8[36] memory _achievements)
+        external
+    {
         require(_isApprovedOrOwner(_summoner));
-        uint8[36] memory _current_events = events[_summoner];
+        uint8[36] memory _current_achievements = achievements[_summoner];
         for (uint i = 0; i < 36; i++) {
-            require(_current_events[i] <= _events[i]);
+            require(_current_achievements[i] <= _achievements[i]);
         }
-        events[_summoner] = _events;
+        achievements[_summoner] = _achievements;
     }
 
-    function get_events(uint _summoner)
+    function get_achievements(uint _summoner)
         external
         view
         returns (uint8[36] memory)
     {
-        return events[_summoner];
+        return achievements[_summoner];
     }
 
     function _isApprovedOrOwner(uint _summoner) internal view returns (bool) {

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-contract CodexEvent {
+contract CodexEvents {
     string public constant index = "Skills";
 
     function event_by_id(uint _id)

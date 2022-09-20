@@ -1,0 +1,252 @@
+{
+  "address": "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "event_by_id",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "attribute_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "synergy",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "retry",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "armor_check_penalty",
+          "type": "bool"
+        },
+        {
+          "internalType": "string",
+          "name": "check",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "action",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "find_key",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "attribute_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "synergy",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "retry",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "armor_check_penalty",
+          "type": "bool"
+        },
+        {
+          "internalType": "string",
+          "name": "check",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "action",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "find_the_door",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "attribute_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "synergy",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "retry",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "armor_check_penalty",
+          "type": "bool"
+        },
+        {
+          "internalType": "string",
+          "name": "check",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "action",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "index",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "wander",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "attribute_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "synergy",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "retry",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "armor_check_penalty",
+          "type": "bool"
+        },
+        {
+          "internalType": "string",
+          "name": "check",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "action",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xa6464a16322a0997b34926a29f5c55c0d267340bf3a6fa1e4b7d3c7346f8af2d",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
+    "transactionIndex": 0,
+    "gasUsed": "408804",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x37b0cbc1ac757f3584a425f55a9fc6e1e903bf56998cf1c2d4b100c13b039057",
+    "transactionHash": "0xa6464a16322a0997b34926a29f5c55c0d267340bf3a6fa1e4b7d3c7346f8af2d",
+    "logs": [],
+    "blockNumber": 20,
+    "cumulativeGasUsed": "408804",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "d26e5f205c9b9c65669421ce046c00e8",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"event_by_id\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"attribute_id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"synergy\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"retry\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"armor_check_penalty\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"check\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"action\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"find_key\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"attribute_id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"synergy\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"retry\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"armor_check_penalty\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"check\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"action\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"find_the_door\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"attribute_id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"synergy\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"retry\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"armor_check_penalty\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"check\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"action\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"index\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"wander\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"attribute_id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"synergy\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"retry\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"armor_check_penalty\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"check\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"action\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/codex/CodexEvents.sol\":\"CodexEvents\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/codex/CodexEvents.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.7;\\r\\n\\r\\ncontract CodexEvents {\\r\\n    string public constant index = \\\"Skills\\\";\\r\\n\\r\\n    function event_by_id(uint _id)\\r\\n        external\\r\\n        pure\\r\\n        returns (\\r\\n            uint id,\\r\\n            string memory name,\\r\\n            uint attribute_id,\\r\\n            uint synergy,\\r\\n            bool retry,\\r\\n            bool armor_check_penalty,\\r\\n            string memory check,\\r\\n            string memory action\\r\\n        )\\r\\n    {\\r\\n        if (_id == 1) {\\r\\n            return find_the_door();\\r\\n        } else if (_id == 2) {\\r\\n            return find_the_door();\\r\\n        } else if (_id == 3) {\\r\\n            return wander();\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function find_the_door()\\r\\n        public\\r\\n        pure\\r\\n        returns (\\r\\n            uint id,\\r\\n            string memory name,\\r\\n            uint attribute_id,\\r\\n            uint synergy,\\r\\n            bool retry,\\r\\n            bool armor_check_penalty,\\r\\n            string memory check,\\r\\n            string memory action\\r\\n        )\\r\\n    {\\r\\n        id = 1;\\r\\n        name = \\\"Find the door\\\";\\r\\n        attribute_id = 4;\\r\\n        synergy = 6; // craft\\r\\n        retry = false;\\r\\n        armor_check_penalty = false;\\r\\n        check = \\\"Check to open the door, need key\\\";\\r\\n        action = \\\"Find the door\\\";\\r\\n    }\\r\\n\\r\\n    function find_key()\\r\\n        public\\r\\n        pure\\r\\n        returns (\\r\\n            uint id,\\r\\n            string memory name,\\r\\n            uint attribute_id,\\r\\n            uint synergy,\\r\\n            bool retry,\\r\\n            bool armor_check_penalty,\\r\\n            string memory check,\\r\\n            string memory action\\r\\n        )\\r\\n    {\\r\\n        id = 2;\\r\\n        name = \\\"Find the key\\\";\\r\\n        attribute_id = 4;\\r\\n        synergy = 6; // craft\\r\\n        retry = false;\\r\\n        armor_check_penalty = false;\\r\\n        check = \\\"Check attributes to get the key, need clothes\\\";\\r\\n        action = \\\"Find the key\\\";\\r\\n    }\\r\\n\\r\\n    function wander()\\r\\n        public\\r\\n        pure\\r\\n        returns (\\r\\n            uint id,\\r\\n            string memory name,\\r\\n            uint attribute_id,\\r\\n            uint synergy,\\r\\n            bool retry,\\r\\n            bool armor_check_penalty,\\r\\n            string memory check,\\r\\n            string memory action\\r\\n        )\\r\\n    {\\r\\n        id = 3;\\r\\n        name = \\\"Wander\\\";\\r\\n        attribute_id = 4;\\r\\n        synergy = 6; // craft\\r\\n        retry = false;\\r\\n        armor_check_penalty = false;\\r\\n        check = \\\"Nothing happen\\\";\\r\\n        action = \\\"Wander around, nothing happen\\\";\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x7819e02bc8cca65ba3d835bf7d35cc2bd8a43cdf5fce248584b343a63c008717\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610677806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80632986c0e51461005c57806355b184221461007a57806368f9d3b71461009f578063ad53d619146100c4578063f4dbfc8b146100e9575b600080fd5b610064610120565b60405161007191906104cd565b60405180910390f35b610082610159565b604051610096989796959493929190610523565b60405180910390f35b6100a761022c565b6040516100bb989796959493929190610523565b60405180910390f35b6100cc6102e2565b6040516100e0989796959493929190610523565b60405180910390f35b61010360048036038101906100fe91906105e7565b6103b5565b604051610117989796959493929190610523565b60405180910390f35b6040518060400160405280600681526020017f536b696c6c73000000000000000000000000000000000000000000000000000081525081565b60006060600080600080606080600197506040518060400160405280600d81526020017f46696e642074686520646f6f72000000000000000000000000000000000000008152509650600495506006945060009350600092506040518060400160405280602081526020017f436865636b20746f206f70656e2074686520646f6f722c206e656564206b657981525091506040518060400160405280600d81526020017f46696e642074686520646f6f720000000000000000000000000000000000000081525090509091929394959697565b60006060600080600080606080600297506040518060400160405280600c81526020017f46696e6420746865206b657900000000000000000000000000000000000000008152509650600495506006945060009350600092506040518060600160405280602d8152602001610615602d913991506040518060400160405280600c81526020017f46696e6420746865206b6579000000000000000000000000000000000000000081525090509091929394959697565b60006060600080600080606080600397506040518060400160405280600681526020017f57616e64657200000000000000000000000000000000000000000000000000008152509650600495506006945060009350600092506040518060400160405280600e81526020017f4e6f7468696e672068617070656e00000000000000000000000000000000000081525091506040518060400160405280601d81526020017f57616e6465722061726f756e642c206e6f7468696e672068617070656e00000081525090509091929394959697565b60006060600080600080606080600189036103e7576103d2610159565b97509750975097509750975097509750610432565b6002890361040c576103f7610159565b97509750975097509750975097509750610432565b600389036104315761041c6102e2565b97509750975097509750975097509750610432565b5b919395975091939597565b600081519050919050565b600082825260208201905092915050565b60005b8381101561047757808201518184015260208101905061045c565b60008484015250505050565b6000601f19601f8301169050919050565b600061049f8261043d565b6104a98185610448565b93506104b9818560208601610459565b6104c281610483565b840191505092915050565b600060208201905081810360008301526104e78184610494565b905092915050565b6000819050919050565b610502816104ef565b82525050565b60008115159050919050565b61051d81610508565b82525050565b600061010082019050610539600083018b6104f9565b818103602083015261054b818a610494565b905061055a60408301896104f9565b61056760608301886104f9565b6105746080830187610514565b61058160a0830186610514565b81810360c08301526105938185610494565b905081810360e08301526105a78184610494565b90509998505050505050505050565b600080fd5b6105c4816104ef565b81146105cf57600080fd5b50565b6000813590506105e1816105bb565b92915050565b6000602082840312156105fd576105fc6105b6565b5b600061060b848285016105d2565b9150509291505056fe436865636b206174747269627574657320746f2067657420746865206b65792c206e65656420636c6f74686573a26469706673582212200f6f4aa1beac94220f145cb51bd6b1cc6e52e47bda33f0ebf7dd8ea8b67b981e64736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c80632986c0e51461005c57806355b184221461007a57806368f9d3b71461009f578063ad53d619146100c4578063f4dbfc8b146100e9575b600080fd5b610064610120565b60405161007191906104cd565b60405180910390f35b610082610159565b604051610096989796959493929190610523565b60405180910390f35b6100a761022c565b6040516100bb989796959493929190610523565b60405180910390f35b6100cc6102e2565b6040516100e0989796959493929190610523565b60405180910390f35b61010360048036038101906100fe91906105e7565b6103b5565b604051610117989796959493929190610523565b60405180910390f35b6040518060400160405280600681526020017f536b696c6c73000000000000000000000000000000000000000000000000000081525081565b60006060600080600080606080600197506040518060400160405280600d81526020017f46696e642074686520646f6f72000000000000000000000000000000000000008152509650600495506006945060009350600092506040518060400160405280602081526020017f436865636b20746f206f70656e2074686520646f6f722c206e656564206b657981525091506040518060400160405280600d81526020017f46696e642074686520646f6f720000000000000000000000000000000000000081525090509091929394959697565b60006060600080600080606080600297506040518060400160405280600c81526020017f46696e6420746865206b657900000000000000000000000000000000000000008152509650600495506006945060009350600092506040518060600160405280602d8152602001610615602d913991506040518060400160405280600c81526020017f46696e6420746865206b6579000000000000000000000000000000000000000081525090509091929394959697565b60006060600080600080606080600397506040518060400160405280600681526020017f57616e64657200000000000000000000000000000000000000000000000000008152509650600495506006945060009350600092506040518060400160405280600e81526020017f4e6f7468696e672068617070656e00000000000000000000000000000000000081525091506040518060400160405280601d81526020017f57616e6465722061726f756e642c206e6f7468696e672068617070656e00000081525090509091929394959697565b60006060600080600080606080600189036103e7576103d2610159565b97509750975097509750975097509750610432565b6002890361040c576103f7610159565b97509750975097509750975097509750610432565b600389036104315761041c6102e2565b97509750975097509750975097509750610432565b5b919395975091939597565b600081519050919050565b600082825260208201905092915050565b60005b8381101561047757808201518184015260208101905061045c565b60008484015250505050565b6000601f19601f8301169050919050565b600061049f8261043d565b6104a98185610448565b93506104b9818560208601610459565b6104c281610483565b840191505092915050565b600060208201905081810360008301526104e78184610494565b905092915050565b6000819050919050565b610502816104ef565b82525050565b60008115159050919050565b61051d81610508565b82525050565b600061010082019050610539600083018b6104f9565b818103602083015261054b818a610494565b905061055a60408301896104f9565b61056760608301886104f9565b6105746080830187610514565b61058160a0830186610514565b81810360c08301526105938185610494565b905081810360e08301526105a78184610494565b90509998505050505050505050565b600080fd5b6105c4816104ef565b81146105cf57600080fd5b50565b6000813590506105e1816105bb565b92915050565b6000602082840312156105fd576105fc6105b6565b5b600061060b848285016105d2565b9150509291505056fe436865636b206174747269627574657320746f2067657420746865206b65792c206e65656420636c6f74686573a26469706673582212200f6f4aa1beac94220f145cb51bd6b1cc6e52e47bda33f0ebf7dd8ea8b67b981e64736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

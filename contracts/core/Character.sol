@@ -11,49 +11,50 @@ contract Character is IERC721, ERC721URIStorage {
 
     //Variable
     Counters.Counter private _tokenIdCounter;
-    mapping(address => bool) private mintedAddress;
+    mapping(address => bool) public mintedAddress;
     mapping(uint => string) public name;
     mapping(uint => uint) public level;
     mapping(uint => uint) public xp;
+    mapping(uint => uint) public adventurers_log;
 
     //Event
-    event summoned(address indexed owner, uint summoner);
-    event leveled(address indexed owner, uint level, uint summoner);
-    event named(address indexed owner, uint name, uint summoner);
+    event summoned(address indexed owner, uint hunter);
+    event leveled(address indexed owner, uint level, uint hunter);
+    event named(address indexed owner, uint name, uint hunter);
 
     constructor() ERC721("Character", "HUNTER") {}
 
     function summon() external {
         require(mintedAddress[msg.sender] == false, "Already summoned");
 
-        uint _next_summoner = _tokenIdCounter.current();
-        name[_next_summoner] = Strings.toHexString(msg.sender);
-        level[_next_summoner] = 1;
+        uint _next_hunter = _tokenIdCounter.current();
+        name[_next_hunter] = Strings.toHexString(msg.sender);
+        level[_next_hunter] = 1;
         mintedAddress[msg.sender] = true;
 
-        _safeMint(msg.sender, _next_summoner);
-        emit summoned(msg.sender, _next_summoner);
+        _safeMint(msg.sender, _next_hunter);
+        emit summoned(msg.sender, _next_hunter);
         _tokenIdCounter.increment();
     }
 
-    function level_up(uint _summoner) external {
-        require(_isApprovedOrOwner(msg.sender, _summoner));
-        uint _level = level[_summoner];
+    function level_up(uint _hunter) external {
+        require(_isApprovedOrOwner(msg.sender, _hunter));
+        uint _level = level[_hunter];
         uint _xp_required = xp_required(_level);
-        xp[_summoner] -= _xp_required;
-        level[_summoner] = _level + 1;
-        emit leveled(msg.sender, level[_summoner], _summoner);
+        xp[_hunter] -= _xp_required;
+        level[_hunter] = _level + 1;
+        emit leveled(msg.sender, level[_hunter], _hunter);
     }
 
-    function change_name(uint _summoner, string memory _name) external {
-        require(_isApprovedOrOwner(msg.sender, _summoner));
-        name[_summoner] = _name;
-        emit named(msg.sender, level[_summoner], _summoner);
+    function change_name(uint _hunter, string memory _name) external {
+        require(_isApprovedOrOwner(msg.sender, _hunter));
+        name[_hunter] = _name;
+        emit named(msg.sender, level[_hunter], _hunter);
     }
 
-    function spend_xp(uint _summoner, uint _xp) external {
-        require(_isApprovedOrOwner(msg.sender, _summoner));
-        xp[_summoner] -= _xp;
+    function spend_xp(uint _hunter, uint _xp) external {
+        require(_isApprovedOrOwner(msg.sender, _hunter));
+        xp[_hunter] -= _xp;
     }
 
     function xp_required(uint curent_level)
@@ -65,5 +66,19 @@ contract Character is IERC721, ERC721URIStorage {
         for (uint i = 1; i < curent_level; i++) {
             xp_to_next_level += curent_level * 1000e18;
         }
+    }
+
+    function hunter_info(uint _hunter)
+        external
+        view
+        returns (
+            uint _xp,
+            uint _log,
+            uint _level
+        )
+    {
+        _xp = xp[_hunter];
+        _log = adventurers_log[_hunter];
+        _level = level[_hunter];
     }
 }

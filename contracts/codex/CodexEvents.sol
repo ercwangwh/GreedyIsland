@@ -10,18 +10,18 @@ contract CodexEvents {
         returns (
             uint id,
             string memory name,
-            uint attribute_id,
-            uint synergy,
             bool retry,
-            bool armor_check_penalty,
-            string memory check,
-            string memory action
+            string memory text,
+            string memory traits_type_check,
+            uint event_dependency,
+            string memory success_text,
+            string memory failure_text
         )
     {
         if (_id == 1) {
             return find_the_door();
         } else if (_id == 2) {
-            return find_the_door();
+            return find_key();
         } else if (_id == 3) {
             return wander();
         }
@@ -33,22 +33,22 @@ contract CodexEvents {
         returns (
             uint id,
             string memory name,
-            uint attribute_id,
-            uint synergy,
             bool retry,
-            bool armor_check_penalty,
-            string memory check,
-            string memory action
+            string memory text,
+            string memory traits_type_check,
+            uint event_dependency,
+            string memory success_text,
+            string memory failure_text
         )
     {
         id = 1;
         name = "Find the door";
-        attribute_id = 4;
-        synergy = 6; // craft
         retry = false;
-        armor_check_penalty = false;
-        check = "Check to open the door, need key";
-        action = "Find the door";
+        text = "You find a door named 'Chapert 0' on this island";
+        traits_type_check = "";
+        event_dependency = 2;
+        success_text = "You success open the door";
+        failure_text = "The door is locked, you need find someting to open it.";
     }
 
     function find_key()
@@ -57,22 +57,22 @@ contract CodexEvents {
         returns (
             uint id,
             string memory name,
-            uint attribute_id,
-            uint synergy,
             bool retry,
-            bool armor_check_penalty,
-            string memory check,
-            string memory action
+            string memory text,
+            string memory traits_type_check,
+            uint event_dependency,
+            string memory success_text,
+            string memory failure_text
         )
     {
         id = 2;
         name = "Find the key";
-        attribute_id = 4;
-        synergy = 6; // craft
         retry = false;
-        armor_check_penalty = false;
-        check = "Check attributes to get the key, need clothes";
-        action = "Find the key";
+        text = "You find a locked box. The password hint is time.";
+        traits_type_check = "4:20 watch";
+        event_dependency = 0;
+        success_text = "You hava watch in your traits. You type in current time as password and get a golden key.";
+        failure_text = "The box is locked, you need to find the password.";
     }
 
     function wander()
@@ -81,21 +81,17 @@ contract CodexEvents {
         returns (
             uint id,
             string memory name,
-            uint attribute_id,
-            uint synergy,
             bool retry,
-            bool armor_check_penalty,
-            string memory check,
-            string memory action
+            string memory text,
+            string memory, /*traits_type_check*/
+            uint, /*event_dependency*/
+            string memory, /*success_text*/
+            string memory /*failure_text*/
         )
     {
         id = 3;
         name = "Wander";
-        attribute_id = 4;
-        synergy = 6; // craft
         retry = false;
-        armor_check_penalty = false;
-        check = "Nothing happen";
-        action = "Wander around, nothing happen";
+        text = "Wandering";
     }
 }

@@ -10,7 +10,7 @@ interface Character {
 }
 
 interface Events {
-    function set_events(uint hunter) external;
+    function generate_events(uint hunter) external;
 }
 
 interface CodexBaseRandom {
@@ -32,10 +32,11 @@ contract Actions {
         require(_isApprovedOrOwner(_hunter));
 
         //Generat event
-        _events.set_events(_hunter);
-        //Check event completed
-
-        //Get reward
+        // _events.generate_events(_hunter);
+        // //Check event completed
+        // event_handle.chekCompleted
+        // //Get xp
+        // achievement.claimable
     }
 
     function _isApprovedOrOwner(uint _hunter) internal view returns (bool) {

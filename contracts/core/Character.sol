@@ -11,11 +11,11 @@ contract Character is IERC721, ERC721URIStorage {
 
     //Variable
     Counters.Counter private _tokenIdCounter;
-    mapping(address => bool) public mintedAddress;
+    mapping(address => bool) public minted_address;
     mapping(uint => string) public name;
     mapping(uint => uint) public level;
     mapping(uint => uint) public xp;
-    mapping(uint => uint) public adventurers_log;
+    mapping(uint => bool[10]) public events;
 
     //Event
     event summoned(address indexed owner, uint hunter);
@@ -25,12 +25,12 @@ contract Character is IERC721, ERC721URIStorage {
     constructor() ERC721("Character", "HUNTER") {}
 
     function summon() external {
-        require(mintedAddress[msg.sender] == false, "Already summoned");
+        require(minted_address[msg.sender] == false, "Already summoned");
 
         uint _next_hunter = _tokenIdCounter.current();
         name[_next_hunter] = Strings.toHexString(msg.sender);
         level[_next_hunter] = 1;
-        mintedAddress[msg.sender] = true;
+        minted_address[msg.sender] = true;
 
         _safeMint(msg.sender, _next_hunter);
         emit summoned(msg.sender, _next_hunter);
@@ -68,17 +68,20 @@ contract Character is IERC721, ERC721URIStorage {
         }
     }
 
+    function events_status(uint _hunter, uint _index)
+        external
+        view
+        returns (bool _status)
+    {
+        _status = events[_hunter][_index];
+    }
+
     function hunter_info(uint _hunter)
         external
         view
-        returns (
-            uint _xp,
-            uint _log,
-            uint _level
-        )
+        returns (uint _xp, uint _level)
     {
         _xp = xp[_hunter];
-        _log = adventurers_log[_hunter];
         _level = level[_hunter];
     }
 }

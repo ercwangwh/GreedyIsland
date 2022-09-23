@@ -3,6 +3,8 @@ require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-solhint");
 require("@openzeppelin/hardhat-upgrades");
 require("@nomicfoundation/hardhat-chai-matchers");
+require("hardhat-gas-reporter");
+require("solidity-coverage");
 require("hardhat-deploy");
 require("dotenv").config();
 
@@ -36,5 +38,10 @@ module.exports = {
     player: {
       default: 1,
     },
+  },
+  gasReporter: {
+    enabled: process.env.REPORT_GAS ? true : false,
+    currency: "USD",
+    gasPrice: 21,
   },
 };

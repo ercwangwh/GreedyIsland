@@ -79,8 +79,13 @@ contract Character is IERC721, ERC721URIStorage {
     function hunter_info(uint _hunter)
         external
         view
-        returns (uint _xp, uint _level)
+        returns (
+            string memory _name,
+            uint _xp,
+            uint _level
+        )
     {
+        _name = name[_hunter];
         _xp = xp[_hunter];
         _level = level[_hunter];
     }

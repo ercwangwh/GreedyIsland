@@ -13,6 +13,14 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     args: [],
     log: true,
   });
+
+  await deploy("CodexBaseRandom", {
+    contract: "contracts/codex/CodexBaseRandom.sol:CodexBaseRandom",
+    from: deployer,
+    args: [],
+    log: true,
+  });
+
   console.log("----------------------------------------------------");
 
   console.log("Deploying Core");

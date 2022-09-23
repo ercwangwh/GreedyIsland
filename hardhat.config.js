@@ -2,8 +2,8 @@
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-solhint");
 require("@openzeppelin/hardhat-upgrades");
+require("@nomicfoundation/hardhat-chai-matchers");
 require("hardhat-deploy");
-
 require("dotenv").config();
 
 const MAINNET_RPC_URL = process.env.ALCHEMY_MAINNET_RPC_URL;

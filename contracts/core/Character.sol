@@ -15,7 +15,7 @@ contract Character is IERC721, ERC721URIStorage {
     mapping(uint => string) public name;
     mapping(uint => uint) public level;
     mapping(uint => uint) public xp;
-    mapping(uint => bool[10]) public events;
+    // mapping(uint => uint) public coins;
 
     //Event
     event summoned(address indexed owner, uint hunter);
@@ -66,14 +66,6 @@ contract Character is IERC721, ERC721URIStorage {
         for (uint i = 1; i < curent_level; i++) {
             xp_to_next_level += curent_level * 1000e18;
         }
-    }
-
-    function events_status(uint _hunter, uint _index)
-        external
-        view
-        returns (bool _status)
-    {
-        _status = events[_hunter][_index];
     }
 
     function hunter_info(uint _hunter)

@@ -14,13 +14,6 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     log: true,
   });
 
-  await deploy("CodexBaseRandom", {
-    contract: "contracts/codex/CodexBaseRandom.sol:CodexBaseRandom",
-    from: deployer,
-    args: [],
-    log: true,
-  });
-
   console.log("----------------------------------------------------");
 
   console.log("Deploying Core");
@@ -32,13 +25,26 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     log: true,
   });
 
-  await deploy("Events", {
-    contract: "contracts/core/Events.sol:Events",
+  await deploy("Coin", {
+    contract: "contracts/core/Coin.sol:Coin",
     from: deployer,
     args: [],
     log: true,
   });
 
+  // await deploy("Staking", {
+  //   contract: "contracts/core/Staking.sol:Staking",
+  //   from: deployer,
+  //   args: [],
+  //   log: true,
+  // });
+
+  await deploy("Knight", {
+    contract: "contracts/core/Knight.sol:Knight",
+    from: deployer,
+    args: [],
+    log: true,
+  });
   console.log("----------------------------------------------------");
 };
 module.exports.tags = ["Deploy"];

@@ -22,9 +22,7 @@ contract CodexEvents {
             return find_the_door();
         } else if (_id == 2) {
             return find_key();
-        } else if (_id == 3) {
-            return wander();
-        }
+        } else if (_id == 3) {}
     }
 
     function find_the_door()
@@ -73,25 +71,5 @@ contract CodexEvents {
         event_dependency = 0;
         success_text = "You hava watch in your traits. You type in current time as password and get a golden key.";
         failure_text = "The box is locked, you need to find the password.";
-    }
-
-    function wander()
-        public
-        pure
-        returns (
-            uint id,
-            string memory name,
-            bool retry,
-            string memory text,
-            string memory, /*traits_type_check*/
-            uint, /*event_dependency*/
-            string memory, /*success_text*/
-            string memory /*failure_text*/
-        )
-    {
-        id = 3;
-        name = "Wander";
-        retry = false;
-        text = "Wandering";
     }
 }

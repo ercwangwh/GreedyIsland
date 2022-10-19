@@ -1,7 +1,7 @@
 const contractAddresses = require("./contractAddresses.json");
-// const abi = require("./abi.json");
+const characterAbi = require("./characterAbi.json");
 
 module.exports = {
   contractAddresses,
-  //   abi,
+  characterAbi,
 };

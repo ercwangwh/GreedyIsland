@@ -33,12 +33,12 @@ const networkConfig = {
 const developmentChains = ["hardhat", "localhost"];
 const VERIFICATION_BLOCK_CONFIRMATIONS = 6;
 const contractsFile = "./constants/contractAddresses.json";
-const abiFile = "./constants/abi.json";
+const characterAbiFile = "./constants/characterAbi.json";
 
 module.exports = {
   networkConfig,
   developmentChains,
   VERIFICATION_BLOCK_CONFIRMATIONS,
   contractsFile,
-  abiFile,
+  characterAbiFile,
 };

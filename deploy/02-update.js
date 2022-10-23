@@ -1,21 +1,30 @@
-const { contractsFile, characterAbiFile } = require("../helper-hardhat-config");
+const {
+  contractsFile,
+  characterAbiFile,
+  knightAbiFile,
+} = require("../helper-hardhat-config");
 const fs = require("fs");
 const { network, ethers } = require("hardhat");
 
 module.exports = async () => {
   if (process.env.UPDATE_FRONT_END) {
     console.log("Writing to front end...");
-    await updateContractAddresses();
+    // await updateContractAddresses();
     await updateAbi();
     console.log("Front end written!");
   }
 };
 
 async function updateAbi() {
-  const hunter = await ethers.getContract("Character");
+  // const hunter = await ethers.getContract("Character");
+  const knight = await ethers.getContract("Knight");
+  // fs.writeFileSync(
+  //   characterAbiFile,
+  //   hunter.interface.format(ethers.utils.FormatTypes.json)
+  // );
   fs.writeFileSync(
-    characterAbiFile,
-    hunter.interface.format(ethers.utils.FormatTypes.json)
+    knightAbiFile,
+    knight.interface.format(ethers.utils.FormatTypes.json)
   );
 }
 

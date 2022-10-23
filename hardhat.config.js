@@ -9,6 +9,8 @@ require("hardhat-deploy");
 require("dotenv").config();
 
 const MAINNET_RPC_URL = process.env.ALCHEMY_MAINNET_RPC_URL;
+const POLYGON_MAINNET_RPC_URL = process.env.POLYGON_MAINNET_RPC_URL;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 module.exports = {
   solidity: "0.8.17",
@@ -28,6 +30,12 @@ module.exports = {
       url: MAINNET_RPC_URL,
       saveDeployments: true,
       chainId: 1,
+    },
+    polygonMumbai: {
+      url: POLYGON_MAINNET_RPC_URL,
+      accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+      saveDeployments: true,
+      chainId: 80001,
     },
   },
   namedAccounts: {

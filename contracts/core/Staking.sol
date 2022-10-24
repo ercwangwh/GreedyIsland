@@ -6,9 +6,9 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-interface Coin {
-    function claim(uint summoner) external;
-}
+// interface Coin {
+//     function claim(uint summoner) external;
+// }
 
 interface Character {
     function level(uint) external view returns (uint);
@@ -24,18 +24,18 @@ contract Staking is ReentrancyGuard {
     // Interfaces for ERC20 and ERC721
     // IERC20 public immutable rewardsToken;
     IERC721 public immutable nftCollection;
-    Coin public immutable coin;
+    IERC20 public immutable coin;
     Character public immutable hunter;
 
     // Constructor function to set the rewards token and the NFT collection addresses
     constructor(
         IERC721 _nftCollection,
-        address coinAddr,
+        IERC20 _coin,
         address charAddr
     ) {
         nftCollection = _nftCollection;
         // rewardsToken = _rewardsToken;
-        coin = Coin(coinAddr);
+        coin = _coin;
         hunter = Character(charAddr);
     }
 
@@ -161,8 +161,8 @@ contract Staking is ReentrancyGuard {
         require(rewards > 0, "You have no rewards to claim");
         stakers[msg.sender].timeOfLastUpdate = block.timestamp;
         stakers[msg.sender].unclaimedRewards = 0;
-        coin.claim(_hunter);
-        // rewardsToken.safeTransfer(msg.sender, rewards);
+        // coin.claim(_hunter);
+        coin.safeTransfer(msg.sender, rewards);
     }
 
     //////////

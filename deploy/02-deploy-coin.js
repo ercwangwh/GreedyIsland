@@ -1,24 +1,24 @@
 const { network, ethers } = require("hardhat");
-const { contractAddresses, contractAddressMumbai } = require("../constants");
+const { contractAddressMumbai } = require("../constants");
 const {
   contractAddressMumbaiFile,
-  stakingFile,
+  coinAbiFile,
 } = require("../helper-hardhat-config");
 const fs = require("fs");
 
-async function updateStakingAddress() {
-  const staking = await ethers.getContract("Staking");
+async function updateCoinAddress() {
+  const coin = await ethers.getContract("Coin");
 
   const contractAddress = JSON.parse(
     fs.readFileSync(contractAddressMumbaiFile, "utf-8")
   );
-  contractAddress.staking = staking.address;
+  contractAddress.coin = coin.address;
 
   fs.writeFileSync(contractAddressMumbaiFile, JSON.stringify(contractAddress));
 
   fs.writeFileSync(
-    stakingFile,
-    staking.interface.format(ethers.utils.FormatTypes.json)
+    coinAbiFile,
+    coin.interface.format(ethers.utils.FormatTypes.json)
   );
 }
 
@@ -27,23 +27,19 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deployer } = await getNamedAccounts();
   //   const addr = JSON.parse(fs.readFileSync(contractAddresses, "utf8"));
   //   const addr = JSON.stringify(contractAddresses);
-  const chainId = network.config.chainId;
+  // const chainId = network.config.chainId;
   //   console.log(chainId);
   //   const addr = JSON.parse(contractAddresses);
-  console.log(contractAddressMumbai.knight);
-  console.log("Deploying Staking");
+  console.log(contractAddressMumbai.character);
+  console.log("Deploying Coin");
   console.log("----------------------------------------------------");
-  await deploy("Staking", {
-    contract: "contracts/core/Staking.sol:Staking",
+  await deploy("Coin", {
+    contract: "contracts/core/Coin.sol:Coin",
     from: deployer,
-    args: [
-      contractAddressMumbai.knight,
-      contractAddressMumbai.coin,
-      contractAddressMumbai.character,
-    ],
+    args: [contractAddressMumbai.character],
     log: true,
   });
   console.log("----------------------------------------------------");
-  await updateStakingAddress();
+  await updateCoinAddress();
 };
-module.exports.tags = ["Staking"];
+module.exports.tags = ["Coin"];

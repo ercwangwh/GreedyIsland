@@ -35,6 +35,9 @@ const VERIFICATION_BLOCK_CONFIRMATIONS = 6;
 const contractsFile = "./constants/contractAddresses.json";
 const characterAbiFile = "./constants/characterAbi.json";
 const knightAbiFile = "./constants/knightAbi.json";
+const coinAbiFile = "./constants/coinAbi.json";
+const stakingFile = "./constants/stakingAbi.json";
+const contractAddressMumbaiFile = "./constants/contractAddressMumbai.json";
 
 module.exports = {
   networkConfig,
@@ -43,4 +46,7 @@ module.exports = {
   contractsFile,
   characterAbiFile,
   knightAbiFile,
+  coinAbiFile,
+  stakingFile,
+  contractAddressMumbaiFile,
 };

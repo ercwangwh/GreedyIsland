@@ -2,6 +2,7 @@ const {
   contractsFile,
   characterAbiFile,
   knightAbiFile,
+  coinAbiFile,
 } = require("../helper-hardhat-config");
 const fs = require("fs");
 const { network, ethers } = require("hardhat");
@@ -16,16 +17,21 @@ module.exports = async () => {
 };
 
 async function updateAbi() {
-  // const hunter = await ethers.getContract("Character");
-  const knight = await ethers.getContract("Knight");
-  // fs.writeFileSync(
-  //   characterAbiFile,
-  //   hunter.interface.format(ethers.utils.FormatTypes.json)
-  // );
+  const hunter = await ethers.getContract("Character");
+  // const knight = await ethers.getContract("Knight");
+  const coin = await ethers.getContract("Coin");
   fs.writeFileSync(
-    knightAbiFile,
-    knight.interface.format(ethers.utils.FormatTypes.json)
+    characterAbiFile,
+    hunter.interface.format(ethers.utils.FormatTypes.json)
   );
+  fs.writeFileSync(
+    coinAbiFile,
+    coin.interface.format(ethers.utils.FormatTypes.json)
+  );
+  // fs.writeFileSync(
+  //   knightAbiFile,
+  //   knight.interface.format(ethers.utils.FormatTypes.json)
+  // );
 }
 
 async function updateContractAddresses() {
@@ -50,9 +56,21 @@ async function updateContractAddresses() {
   //     //       contractList[network.config.chainId.toString()].push(hunter.address);
   //     //     }
   //   } else {
+  // if (network.config.chainId.toString() in contractList) {
+  //     //     if (
+  //     //       !contractList[network.config.chainId.toString()].includes(
+  //     //         contractAddresses
+  //     //       )
+  //     //     ) {
+  //     //       //   contractAddresses[network.config.chainId.toString()].push([
+  //     //       //     hunter.address,
+  //     //       //   ]);
+  //     //       contractList[network.config.chainId.toString()].push(hunter.address);
+  // }
+  //   } else {
   contractList[network.config.chainId.toString()] = contractAddresses;
   // const contractList = {(network.config.chainId.toString()):contractAddresses}
   //   }
   fs.writeFileSync(contractsFile, JSON.stringify(contractList));
 }
-module.exports.tags = ["all"];
+module.exports.tags = ["Abi"];

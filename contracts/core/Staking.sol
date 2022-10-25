@@ -10,13 +10,13 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 //     function claim(uint summoner) external;
 // }
 
-interface Character {
-    function level(uint) external view returns (uint);
+// interface Character {
+//     function level(uint) external view returns (uint);
 
-    function getApproved(uint) external view returns (address);
+//     function getApproved(uint) external view returns (address);
 
-    function ownerOf(uint) external view returns (address);
-}
+//     function ownerOf(uint) external view returns (address);
+// }
 
 contract Staking is ReentrancyGuard {
     using SafeERC20 for IERC20;
@@ -25,18 +25,18 @@ contract Staking is ReentrancyGuard {
     // IERC20 public immutable rewardsToken;
     IERC721 public immutable nftCollection;
     IERC20 public immutable coin;
-    Character public immutable hunter;
+    IERC721 public immutable hunter;
 
     // Constructor function to set the rewards token and the NFT collection addresses
     constructor(
         IERC721 _nftCollection,
         IERC20 _coin,
-        address charAddr
+        IERC721 _hunter
     ) {
         nftCollection = _nftCollection;
         // rewardsToken = _rewardsToken;
         coin = _coin;
-        hunter = Character(charAddr);
+        hunter = _hunter;
     }
 
     struct StakedToken {

@@ -1,35 +1,40 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract Character is IERC721, ERC721URIStorage {
+contract Character is ERC721, Ownable {
+    using SafeERC20 for IERC20;
     using Counters for Counters.Counter;
 
+    IERC20 public immutable coin;
     //Variable
     Counters.Counter private _tokenIdCounter;
     mapping(address => bool) public minted_address;
     mapping(uint => string) public name;
-    mapping(uint => uint) public level;
-    mapping(uint => uint) public xp;
-    // mapping(uint => uint) public coins;
+    //skill level
+    mapping(uint => uint[]) public skill;
 
     //Event
     event summoned(address indexed owner, uint hunter);
-    event leveled(address indexed owner, uint level, uint hunter);
-    event named(address indexed owner, uint name, uint hunter);
+    event skilled(address indexed owner, uint skill, uint hunter);
+    event named(address indexed owner, string name, uint hunter);
 
-    constructor() ERC721("Character", "HUNTER") {}
+    constructor(IERC20 _coin) ERC721("Character", "HUNTER") {
+        coin = _coin;
+    }
 
     function summon() external {
         require(minted_address[msg.sender] == false, "Already summoned");
 
         uint _next_hunter = _tokenIdCounter.current();
         name[_next_hunter] = Strings.toHexString(msg.sender);
-        level[_next_hunter] = 1;
+        skill[_next_hunter] = [0, 0, 0];
         minted_address[msg.sender] = true;
 
         _safeMint(msg.sender, _next_hunter);
@@ -37,48 +42,38 @@ contract Character is IERC721, ERC721URIStorage {
         _tokenIdCounter.increment();
     }
 
-    function level_up(uint _hunter) external {
-        require(_isApprovedOrOwner(msg.sender, _hunter));
-        uint _level = level[_hunter];
-        uint _xp_required = xp_required(_level);
-        xp[_hunter] -= _xp_required;
-        level[_hunter] = _level + 1;
-        emit leveled(msg.sender, level[_hunter], _hunter);
+    function skill_up(uint _hunter, uint _skill_index) external onlyOwner {
+        // require(_isApprovedOrOwner(msg.sender, _hunter));
+        uint _skill_level = skill[_hunter][_skill_index];
+        uint _coin_required = coin_required(_skill_level);
+        coin.safeTransfer(address(0), _coin_required);
+        // coin[_hunter] -= _coin_required;
+        skill[_hunter][_skill_index] = _skill_level + 1;
+        emit skilled(msg.sender, skill[_hunter][_skill_level], _hunter);
     }
 
-    function change_name(uint _hunter, string memory _name) external {
-        require(_isApprovedOrOwner(msg.sender, _hunter));
+    function change_name(uint _hunter, string memory _name) external onlyOwner {
+        // require(_isApprovedOrOwner(msg.sender, _hunter));
         name[_hunter] = _name;
-        emit named(msg.sender, level[_hunter], _hunter);
+        emit named(msg.sender, _name, _hunter);
     }
 
-    function spend_xp(uint _hunter, uint _xp) external {
-        require(_isApprovedOrOwner(msg.sender, _hunter));
-        xp[_hunter] -= _xp;
-    }
-
-    function xp_required(uint curent_level)
+    function coin_required(uint curent_skill)
         public
         pure
-        returns (uint xp_to_next_level)
+        returns (uint coin_to_next_skill)
     {
-        xp_to_next_level = curent_level * 1000e18;
-        for (uint i = 1; i < curent_level; i++) {
-            xp_to_next_level += curent_level * 1000e18;
-        }
+        curent_skill > 0
+            ? coin_to_next_skill = curent_skill * 1e18
+            : coin_to_next_skill = 1e18;
     }
 
     function hunter_info(uint _hunter)
         external
         view
-        returns (
-            string memory _name,
-            uint _xp,
-            uint _level
-        )
+        returns (string memory _name, uint[] memory _skill)
     {
         _name = name[_hunter];
-        _xp = xp[_hunter];
-        _level = level[_hunter];
+        _skill = skill[_hunter];
     }
 }
